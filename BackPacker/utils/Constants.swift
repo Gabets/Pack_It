@@ -9,5 +9,5 @@
 import UIKit
 
 struct Constants {
-    static let ARC_LINE_WIDTH: CGFloat = 6.0
+    static let ARC_LINE_WIDTH: CGFloat = 7.5
 }

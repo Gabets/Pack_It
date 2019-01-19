@@ -7,12 +7,7 @@
 //
 
 import UIKit
-
-struct CellList {
-    var imageTitle: UIImage?
-    var textTitle: String
-    var textTimer: String?
-}
+import RealmSwift
 
 class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -23,13 +18,15 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     private let imageForest = UIImage(named: "forest")
     private let imageNepal = UIImage(named: "nepal")
     private let imageRiver = UIImage(named: "river")
-    private let cellBorderColorCell = UIColor(red: 121 / 255, green: 121 / 255, blue: 121 / 255, alpha: 1.0)
-    private let cellBorderWidth: CGFloat = 2.0
+//    private let cellBorderColorCell = UIColor(red: 121 / 255, green: 121 / 255, blue: 121 / 255, alpha: 1.0)
+//    private let cellBorderWidth: CGFloat = 2.0
     private let cellNib = UINib(nibName: "ListCollectionCell", bundle: nil)
     
     private var cellsData: [CellList] = []
     private var screenWidth: CGFloat = 0
     private var screenHeight: CGFloat = 0
+    
+    private var pageInt = 0
     
     // MARK: - Lifecicle
     override func viewDidLoad() {
@@ -37,21 +34,27 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         
         collectionView.register(cellNib, forCellWithReuseIdentifier: cellId)
         
-        cellsData.append(CellList(imageTitle: imageForest, textTitle: "Forest", textTimer: "21.05 \t 11:00"))
-        cellsData.append(CellList(imageTitle: imageNepal, textTitle: "Nepal", textTimer: "22.07 \t 12:00"))
-        cellsData.append(CellList(imageTitle: imageRiver, textTitle: "Canoe trip", textTimer: "11.09 \t 22:33"))
+        cellsData.append(CellList(imageTitle: imageForest, textTitle: "На сутки в лес", textPercent: 10.1, textDescription: "В данной списке находятся самые необхожимые предметы для суточного похода в лес"))
+        cellsData.append(CellList(imageTitle: imageNepal, textTitle: "Непал", textPercent: 55.5, textDescription: "Снаряжени для поездки в отпуск в Непал"))
+        cellsData.append(CellList(imageTitle: imageRiver, textTitle: "Байдарки", textPercent: 88.8, textDescription: "Список для похода на байдарках"))
         
         screenWidth = UIScreen.main.bounds.width
         screenHeight = screenWidth * 2
+        print("\n screenWidth = \(screenWidth)")
         
         collectionView.contentInset.left = screenWidth / 5
         collectionView.contentInset.right = screenWidth / 5
         collectionView.contentInset.bottom = screenHeight / 9
         
-        
-        
+        let flowLayout = collectionView.collectionViewLayout as! MainCollectionFlowLayout
+        flowLayout.screenSize = screenWidth
+       
         pageControl.numberOfPages = cellsData.count
         pageControl.currentPage = 0
+        
+        
+        Realm.Configuration.defaultConfiguration.deleteRealmIfMigrationNeeded = true
+
     }
     
     // MARK: UICollectionViewDataSource
@@ -66,13 +69,10 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ListCollectionCell
-        cell.layer.borderWidth = cellBorderWidth
-        cell.layer.borderColor = cellBorderColorCell.cgColor
         
         let cellData = cellsData[indexPath.row]
-        cell.setupCell(cellData.imageTitle!, title: cellData.textTitle, timerText: cellData.textTimer!, imageWidth: cell.layer.bounds.width)
+        cell.setupCell(cellData.imageTitle!, title: cellData.textTitle, listDescription: cellData.textDescription ?? "", percent: cellData.textPercent ?? 0, imageWidth: cell.layer.bounds.width)
         cell.updateCornerRadius()
         
         return cell
@@ -99,16 +99,18 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "CirrentListVC") as! CurrentListVC
         vc.listTitle = cellsData[indexPath.row].textTitle
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        print("\n TEST scrollViewWillBeginDragging")
+        vc.modalTransitionStyle = .coverVertical
+        self.navigationController?.present(vc, animated: true, completion: nil)
+        
+//        self.navigationController?.present(vc, animated: true, completion: nil)
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print("\n TEST scrollViewDidScroll")
+        let offSetX = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 2
+        pageControl.currentPage = Int(((offSetX + horizontalCenter) / width).rounded())
     }
 
 }
