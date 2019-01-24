@@ -10,9 +10,9 @@ import UIKit
 
 class PackItemCell: UITableViewCell {
     
-    @IBOutlet weak var imageRound: UIImageView!
+    @IBOutlet weak var buttonRound: UIButton!
+    @IBOutlet weak var buttonDelete: UIButton!
     @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var buttonDelete: NSLayoutConstraint!
     
     private let imagePacked: UIImage = UIImage(imageLiteralResourceName: "round button fill")
     private let imageUnPacked: UIImage = UIImage(imageLiteralResourceName: "round button")
@@ -25,9 +25,9 @@ class PackItemCell: UITableViewCell {
         labelName.text = name
         
         if isPacked {
-            imageRound.image = imagePacked
+            buttonRound.setImage(imagePacked, for: .normal)
         } else {
-            imageRound.image = imageUnPacked
+            buttonRound.setImage(imageUnPacked, for: .normal)
         }
     }
     

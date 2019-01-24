@@ -24,27 +24,27 @@ class ListCollectionCell: UICollectionViewCell {
         
         layer.cornerRadius = 10.0
         
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 5.0)
-        layer.shadowRadius = 3.0
-        layer.shadowOpacity = 1.5
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        layer.shadowRadius = 4.0
+        layer.shadowOpacity = 1.0
         layer.masksToBounds = false
     }
     
-    func setupCell(_ image: UIImage, title: String, listDescription: String, percent: CGFloat, imageWidth: CGFloat) {
-        imageTitle.image = image
-        self.percent = percent
-        self.imageWidth = imageWidth - 80
-        self.progressWidth = imageWidth - 30
+    func setupCell(_ cellData: CellList, imageWidth: CGFloat) {
+        imageTitle.image = cellData.imageTitle
+        self.percent = cellData.textPercent ?? 0.0
+        self.imageWidth = imageWidth - 40
+        self.progressWidth = imageWidth - 40
         
-        labelTitle.text = title
-        labelDescription.text = listDescription
+        labelTitle.text = cellData.textTitle
+        labelDescription.text = cellData.textDescription
         labelPercent.text = "\(Int(percent.rounded()))%"
         
         addProgressArc()
     }
     
-    func addProgressArc() {
+    private func addProgressArc() {
         let progressArcView = ProgressArcView(frame: CGRect(x: self.frame.size.width / 2 - progressWidth / 2 - Constants.ARC_LINE_WIDTH / 2,
                                                             y: 50 - Constants.ARC_LINE_WIDTH / 2,
                                                             width: progressWidth + Constants.ARC_LINE_WIDTH,
@@ -61,6 +61,12 @@ class ListCollectionCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         updateCornerRadius()
-        
+        removeArc()
+    }
+    
+    func removeArc() {
+        if (self.subviews.last as? ProgressArcView) != nil  {
+            self.subviews.last?.removeFromSuperview()
+        }
     }
 }

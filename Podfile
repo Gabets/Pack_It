@@ -6,7 +6,7 @@ target 'BackPacker' do
   use_frameworks!
 
   # Pods for BackPacker
-pod 'SwipeCellKit'
 pod 'RealmSwift'
+pod 'Toast-Swift', '~> 4.0.0'
 
 end

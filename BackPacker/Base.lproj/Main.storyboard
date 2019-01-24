@@ -37,10 +37,10 @@
                                     <outlet property="delegate" destination="gup-18-4Ec" id="Jkc-7V-uK0"/>
                                 </connections>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nMb-Mf-gtR">
+                            <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="nMb-Mf-gtR">
                                 <rect key="frame" x="50" y="580" width="275" height="37"/>
-                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="currentPageIndicatorTintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="pageIndicatorTintColor" red="0.94117647058823528" green="0.78823529411764703" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.98039215686274506" green="0.4823529411764706" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,13 +78,13 @@
                                 <items>
                                     <navigationItem title="Title" id="rUw-X0-LWL">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="x4C-Pc-ObR">
-                                            <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.98039215686274506" green="0.4823529411764706" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="clickBack:" destination="Bb9-w7-hTd" id="Hoh-b0-Jit"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="jh7-84-qnX">
-                                            <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.98039215686274506" green="0.4823529411764706" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="clickSave:" destination="Bb9-w7-hTd" id="PkL-w0-Gsf"/>
                                             </connections>
@@ -92,10 +92,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tq4-js-8VL">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tq4-js-8VL">
                                 <rect key="frame" x="122.5" y="83" width="130" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="kSO-j9-Omj"/>
+                                    <constraint firstAttribute="width" constant="130" id="kSO-j9-Omj"/>
                                     <constraint firstAttribute="width" secondItem="Tq4-js-8VL" secondAttribute="height" multiplier="1:1" id="qLF-gU-BMM"/>
                                 </constraints>
                                 <state key="normal" title="Image"/>
@@ -105,7 +105,7 @@
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KOI-sk-PER">
                                 <rect key="frame" x="16" y="241" width="343" height="21"/>
-                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.98039215686274506" green="0.4823529411764706" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -203,6 +203,7 @@
                         <outlet property="buttonClear" destination="F1m-Cz-DqQ" id="W0T-lE-KIh"/>
                         <outlet property="buttonCopy" destination="6Pq-g8-oc1" id="FAv-gf-gM0"/>
                         <outlet property="buttonDelete" destination="9lx-ME-LFm" id="JLo-rO-EGf"/>
+                        <outlet property="buttonImage" destination="Tq4-js-8VL" id="B7a-u6-F84"/>
                         <outlet property="constraintHeightDescription" destination="ROC-7d-1Vv" id="hVX-Vd-EbI"/>
                         <outlet property="navBack" destination="x4C-Pc-ObR" id="mbc-5t-GOt"/>
                         <outlet property="navSave" destination="jh7-84-qnX" id="2f2-aC-PNA"/>
@@ -218,7 +219,7 @@
         <!--Current ListVC-->
         <scene sceneID="bre-y6-hlG">
             <objects>
-                <viewController storyboardIdentifier="CirrentListVC" id="Rj0-pD-d2a" customClass="CurrentListVC" customModule="BackPacker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentListVC" id="Rj0-pD-d2a" customClass="CurrentListVC" customModule="BackPacker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnV-Wd-KMK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,7 +252,7 @@
                                     <action selector="changeFilter:" destination="Rj0-pD-d2a" eventType="valueChanged" id="WHd-Rx-wci"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bcT-K1-mhz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bcT-K1-mhz">
                                 <rect key="frame" x="20" y="172" width="335" height="495"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -264,13 +265,13 @@
                                 <items>
                                     <navigationItem title="Title" id="t9B-aV-QH9">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="PA0-gc-fs9">
-                                            <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.98039215686274506" green="0.4823529411764706" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="clickBack:" destination="Rj0-pD-d2a" id="OF3-6X-1PI"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Edit" image="Edit icon" id="NWv-yH-N1I">
-                                            <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.98039215686274506" green="0.4823529411764706" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="clickEdit:" destination="Rj0-pD-d2a" id="yJV-Od-gTj"/>
                                             </connections>
@@ -323,7 +324,7 @@
                                 <items>
                                     <navigationItem title="Title" id="bSo-OU-ddF">
                                         <barButtonItem key="leftBarButtonItem" title="Назад" id="JQT-aV-wzy">
-                                            <color key="tintColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" red="0.98039215686274506" green="0.4823529411764706" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="clickBackButton:" destination="tn2-yJ-JiO" id="mjf-DE-QYq"/>
                                             </connections>
@@ -354,11 +355,11 @@
                                     <constraint firstAttribute="height" constant="1" id="9IW-Wc-jI4"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="86H-Uo-3MI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="86H-Uo-3MI">
                                 <rect key="frame" x="20" y="134" width="335" height="533"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" textLabel="09N-MR-8U6" style="IBUITableViewCellStyleDefault" id="VC9-Ww-mOd">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" textLabel="09N-MR-8U6" rowHeight="44" style="IBUITableViewCellStyleDefault" id="VC9-Ww-mOd">
                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VC9-Ww-mOd" id="gl7-rR-OCW">

@@ -18,15 +18,20 @@
 		CE433C1021E38B3700083D32 /* MainCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE433C0F21E38B3700083D32 /* MainCollectionVC.swift */; };
 		CE63EA7821EE7E51002C5280 /* ProgressArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63EA7721EE7E51002C5280 /* ProgressArcView.swift */; };
 		CE63EA7B21EE8FA9002C5280 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63EA7A21EE8FA9002C5280 /* Constants.swift */; };
+		CE64DC2921F4F91000C91E0E /* ObjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64DC2821F4F91000C91E0E /* ObjectList.swift */; };
+		CE64DC2B21F5027100C91E0E /* ConstantsLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64DC2A21F5027100C91E0E /* ConstantsLists.swift */; };
+		CE6B24A621FA404900E99276 /* AddItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6B24A421FA404900E99276 /* AddItemCell.swift */; };
+		CE6B24A721FA404900E99276 /* AddItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6B24A521FA404900E99276 /* AddItemCell.xib */; };
 		CEAA810E21F248D5003839F4 /* PackItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA810C21F248D5003839F4 /* PackItemCell.swift */; };
 		CEAA810F21F248D5003839F4 /* PackItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAA810D21F248D5003839F4 /* PackItemCell.xib */; };
 		CEAA811221F2833B003839F4 /* CellList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA811121F2833B003839F4 /* CellList.swift */; };
-		CEAA811421F2841E003839F4 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA811321F2841E003839F4 /* ListItem.swift */; };
 		CEAA811621F2859E003839F4 /* EditListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA811521F2859E003839F4 /* EditListVC.swift */; };
 		CEAA811821F29E28003839F4 /* ObjectListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA811721F29E28003839F4 /* ObjectListItem.swift */; };
 		CEAA811A21F29F60003839F4 /* ConstantsItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA811921F29F60003839F4 /* ConstantsItems.swift */; };
 		CECC1DB521EF941200F33600 /* MainCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC1DB421EF941200F33600 /* MainCollectionFlowLayout.swift */; };
 		CEF3D23F21E546B3008121D4 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3D23E21E546B3008121D4 /* AddItemVC.swift */; };
+		CEF5A07021F718FA003F9B5B /* SessionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5A06F21F718F9003F9B5B /* SessionList.swift */; };
+		CEF5A07221F7334A003F9B5B /* ObjectListName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF5A07121F7334A003F9B5B /* ObjectListName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,15 +50,20 @@
 		CE433C0F21E38B3700083D32 /* MainCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionVC.swift; sourceTree = "<group>"; };
 		CE63EA7721EE7E51002C5280 /* ProgressArcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressArcView.swift; sourceTree = "<group>"; };
 		CE63EA7A21EE8FA9002C5280 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CE64DC2821F4F91000C91E0E /* ObjectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectList.swift; sourceTree = "<group>"; };
+		CE64DC2A21F5027100C91E0E /* ConstantsLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsLists.swift; sourceTree = "<group>"; };
+		CE6B24A421FA404900E99276 /* AddItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemCell.swift; sourceTree = "<group>"; };
+		CE6B24A521FA404900E99276 /* AddItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddItemCell.xib; sourceTree = "<group>"; };
 		CEAA810C21F248D5003839F4 /* PackItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemCell.swift; sourceTree = "<group>"; };
 		CEAA810D21F248D5003839F4 /* PackItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackItemCell.xib; sourceTree = "<group>"; };
 		CEAA811121F2833B003839F4 /* CellList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellList.swift; sourceTree = "<group>"; };
-		CEAA811321F2841E003839F4 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		CEAA811521F2859E003839F4 /* EditListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListVC.swift; sourceTree = "<group>"; };
 		CEAA811721F29E28003839F4 /* ObjectListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectListItem.swift; sourceTree = "<group>"; };
 		CEAA811921F29F60003839F4 /* ConstantsItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsItems.swift; sourceTree = "<group>"; };
 		CECC1DB421EF941200F33600 /* MainCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		CEF3D23E21E546B3008121D4 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
+		CEF5A06F21F718F9003F9B5B /* SessionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionList.swift; sourceTree = "<group>"; };
+		CEF5A07121F7334A003F9B5B /* ObjectListName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectListName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,15 +107,15 @@
 		CE0FF50F21DFEA3900C4013C /* BackPacker */ = {
 			isa = PBXGroup;
 			children = (
-				CEAA811021F28322003839F4 /* models */,
-				CE63EA7921EE8F8F002C5280 /* utils */,
-				CE27D9B421E082ED002A0EF6 /* controllers */,
-				CE0FF52421DFF17700C4013C /* views */,
 				CE0FF51C21DFEA3900C4013C /* Info.plist */,
 				CE0FF51021DFEA3900C4013C /* AppDelegate.swift */,
 				CE0FF51721DFEA3900C4013C /* Assets.xcassets */,
+				CE27D9B421E082ED002A0EF6 /* controllers */,
 				CE0FF51921DFEA3900C4013C /* LaunchScreen.storyboard */,
 				CE0FF51421DFEA3900C4013C /* Main.storyboard */,
+				CEAA811021F28322003839F4 /* models */,
+				CE63EA7921EE8F8F002C5280 /* utils */,
+				CE0FF52421DFF17700C4013C /* views */,
 			);
 			path = BackPacker;
 			sourceTree = "<group>";
@@ -119,6 +129,8 @@
 				CECC1DB421EF941200F33600 /* MainCollectionFlowLayout.swift */,
 				CEAA810C21F248D5003839F4 /* PackItemCell.swift */,
 				CEAA810D21F248D5003839F4 /* PackItemCell.xib */,
+				CE6B24A421FA404900E99276 /* AddItemCell.swift */,
+				CE6B24A521FA404900E99276 /* AddItemCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -137,8 +149,10 @@
 		CE63EA7921EE8F8F002C5280 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				CEF5A06F21F718F9003F9B5B /* SessionList.swift */,
 				CE63EA7A21EE8FA9002C5280 /* Constants.swift */,
 				CEAA811921F29F60003839F4 /* ConstantsItems.swift */,
+				CE64DC2A21F5027100C91E0E /* ConstantsLists.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -147,8 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				CEAA811121F2833B003839F4 /* CellList.swift */,
-				CEAA811321F2841E003839F4 /* ListItem.swift */,
+				CE64DC2821F4F91000C91E0E /* ObjectList.swift */,
 				CEAA811721F29E28003839F4 /* ObjectListItem.swift */,
+				CEF5A07121F7334A003F9B5B /* ObjectListName.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -226,6 +241,7 @@
 				CE0FF51821DFEA3900C4013C /* Assets.xcassets in Resources */,
 				CE0FF51621DFEA3900C4013C /* Main.storyboard in Resources */,
 				CE0FF52C21E003B700C4013C /* ListCollectionCell.xib in Resources */,
+				CE6B24A721FA404900E99276 /* AddItemCell.xib in Resources */,
 				CEAA810F21F248D5003839F4 /* PackItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +282,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-BackPacker/Pods-BackPacker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -274,7 +290,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -294,12 +310,16 @@
 				CEAA810E21F248D5003839F4 /* PackItemCell.swift in Sources */,
 				CEAA811A21F29F60003839F4 /* ConstantsItems.swift in Sources */,
 				CEAA811821F29E28003839F4 /* ObjectListItem.swift in Sources */,
+				CE6B24A621FA404900E99276 /* AddItemCell.swift in Sources */,
+				CEF5A07021F718FA003F9B5B /* SessionList.swift in Sources */,
+				CE64DC2921F4F91000C91E0E /* ObjectList.swift in Sources */,
 				CEF3D23F21E546B3008121D4 /* AddItemVC.swift in Sources */,
-				CEAA811421F2841E003839F4 /* ListItem.swift in Sources */,
 				CE0FF51121DFEA3900C4013C /* AppDelegate.swift in Sources */,
 				CE0FF52B21E003B700C4013C /* ListCollectionCell.swift in Sources */,
+				CE64DC2B21F5027100C91E0E /* ConstantsLists.swift in Sources */,
 				CE63EA7B21EE8FA9002C5280 /* Constants.swift in Sources */,
 				CE433C1021E38B3700083D32 /* MainCollectionVC.swift in Sources */,
+				CEF5A07221F7334A003F9B5B /* ObjectListName.swift in Sources */,
 				CE27D9B621E08330002A0EF6 /* CurrentListVC.swift in Sources */,
 				CEAA811221F2833B003839F4 /* CellList.swift in Sources */,
 			);

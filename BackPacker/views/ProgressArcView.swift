@@ -49,11 +49,10 @@ class ProgressArcView: UIView {
     }
     
     func createArc() {
-        print("\n TEST createArc pecent = \(percent) ")
         path = UIBezierPath(arcCenter: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2),
                             radius: self.frame.size.height / 2 - Constants.ARC_LINE_WIDTH / 2,
-                            startAngle: CGFloat(0.0).toRadians(),
-                            endAngle: CGFloat(360.0 * percent / 100.0).toRadians(),
+                            startAngle: CGFloat(270.0).toRadians(),
+                            endAngle: CGFloat(270.0 + 360 * percent / 100.0).toRadians(),
                             clockwise: true)
     }
 

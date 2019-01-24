@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SwipeCellKit
+import RealmSwift
 
 class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,34 +17,30 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var segmentFilter: UISegmentedControl!
     @IBOutlet weak var tableItems: UITableView!
     
+    var percentCallback : (()->())?
+    
+    private let realm = try! Realm()
     private let cellReuseIdentifier = "PackItemCell"
     private let colorNavigation = UIColor(red: 250 / 255, green: 123 / 255, blue: 100 / 255, alpha: 1.0)
 
-    var listTitle = ""
+    private var currentList: ObjectList?
     private var filterIndex = 0
-    private var packItemsList: [ListItem] = []
-    private var sortedItemsList: [ListItem] = []
-    private var filteredItemsList: [ListItem] = []
+    private var sortedItemsList: [ObjectListItem] = []
+    private var filteredItemsList: [ObjectListItem] = []
     
+    // MARK: - Lifecicle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableItems.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-        packItemsList.append(ListItem(name: "Тушёнка", isPacked: false))
-        packItemsList.append(ListItem(name: "Аптечка", isPacked: true))
-        packItemsList.append(ListItem(name: "нож", isPacked: true))
-        packItemsList.append(ListItem(name: "спальник", isPacked: false))
-        packItemsList.append(ListItem(name: "спички", isPacked: false))
         
-        navTitle.title = listTitle
+        currentList = SessionList.getCurrentList()
+        navTitle.title = currentList?.listName
         navItemBack.title = "Назад"
-
-        sortedItemsList = packItemsList.sorted(by: {
-            $0.name.lowercased() < $1.name.lowercased()
-        })
-        filteredItemsList = sortedItemsList
+       
+        self.title = currentList?.listName
         
-        self.title = listTitle
+        updateTable()
     }
     
     
@@ -57,42 +53,73 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let cell = tableItems.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! PackItemCell
         let item = filteredItemsList[indexPath.row]
         cell.setupCell(name: item.name, isPacked: item.isPacked)
+        
+        cell.buttonRound.tag = item.id
+        cell.buttonRound.addTarget(self, action: #selector(clickPackItem(sender:)), for: .touchUpInside)
+        cell.buttonDelete.tag = item.id
+        cell.buttonDelete.addTarget(self, action: #selector(clickDeleteItem(sender:)), for: .touchUpInside)
 
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let name = filteredItemsList[indexPath.row].name
-        for i in 0..<sortedItemsList.count {
-            if sortedItemsList[i].name == name {
-                sortedItemsList[i].isPacked = !sortedItemsList[i].isPacked
-                break
-            }
-        }
-
-        filterCurrentList()
-    }
-    
     // MARK: - Actions
     @IBAction func clickBack(_ sender: UIBarButtonItem) {
+        percentCallback!()
         self.navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func clickAdd(_ sender: UIButton) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddItemVC") as! AddItemVC
-        vc.listTitle = listTitle
         vc.modalTransitionStyle = .crossDissolve
+        vc.updateCallback = {
+            self.updateTable()
+        }
+        
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func clickEdit(_ sender: UIBarButtonItem) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditListVC") as! EditListVC
+        vc.clearCallback = {
+            self.updateTable()
+        }
+        
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func changeFilter(_ sender: UISegmentedControl) {
         filterIndex = sender.selectedSegmentIndex
+        filterCurrentList()
+    }
+    
+    @objc func clickPackItem(sender : UIButton) {
+//        let name = filteredItemsList[sender.tag].name
+        for i in 0..<sortedItemsList.count {
+            if sortedItemsList[i].id == sender.tag {
+                try! realm.write {
+                    sortedItemsList[i].isPacked = !sortedItemsList[i].isPacked
+                }
+                
+                break
+            }
+        }
+        
+        filterCurrentList()
+    }
+    
+    @objc func clickDeleteItem(sender : UIButton) {
+        guard let index = currentList?.listItems.index(of: (currentList?.listItems.first(where: {
+            $0.id == sender.tag
+        }))!) else {
+            return
+        }
+        
+        try! realm.write {
+            currentList?.listItems.remove(at: index)
+            sortedItemsList.remove(at: index)
+        }
+     
         filterCurrentList()
     }
     
@@ -107,6 +134,15 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         default:
             filteredItemsList = sortedItemsList
         }
+        
+        tableItems.reloadData()
+    }
+    
+    func updateTable() {
+        sortedItemsList = Array((currentList?.listItems)!).sorted(by: {
+            $0.name.lowercased() < $1.name.lowercased()
+        })
+        filteredItemsList = sortedItemsList
         
         tableItems.reloadData()
     }

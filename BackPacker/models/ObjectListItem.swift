@@ -9,8 +9,8 @@
 import Foundation
 import RealmSwift
 
-// Dog model
 class ObjectListItem: Object {
     @objc dynamic var name = ""
     @objc dynamic var isPacked = false
+    @objc dynamic var id = 0
 }

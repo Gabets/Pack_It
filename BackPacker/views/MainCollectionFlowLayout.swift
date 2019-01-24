@@ -31,7 +31,7 @@ class MainCollectionFlowLayout: UICollectionViewFlowLayout {
             }
         }
        
-        return CGPoint(x: proposedContentOffset.x + offsetAdjustment - screenSize / 5,
+        return CGPoint(x: proposedContentOffset.x + offsetAdjustment - screenSize / 7,
                        y: proposedContentOffset.y)
     }
 
