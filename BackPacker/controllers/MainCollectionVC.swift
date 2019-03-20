@@ -15,10 +15,8 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     @IBOutlet weak var pageControl: UIPageControl!
     
     private let cellId = "CellList"
-    private let imageForest = UIImage(named: "img_1")
-    private let imageNepal = UIImage(named: "img_1")
-    private let imageRiver = UIImage(named: "img_1")
     private let cellNib = UINib(nibName: "ListCollectionCell", bundle: nil)
+    private lazy var realm = try! Realm()
     
     private var lists: Results<ObjectList>?
     private var cellsData: [CellList] = []
@@ -26,6 +24,7 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
     private var screenHeight: CGFloat = 0
     
     private var pageInt = 0
+    private var isCallback = true
     
     // MARK: - Lifecicle
     override func viewDidLoad() {
@@ -35,26 +34,23 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         prepareLists()
         
         screenWidth = UIScreen.main.bounds.width
-        screenHeight = screenWidth * 9 / 5
-        print("\n screenWidth = \(screenWidth)")
-        
-        collectionView.contentInset.left = screenWidth / 7
-        collectionView.contentInset.right = screenWidth / 7
-        collectionView.contentInset.bottom = screenHeight / 9
         
         let flowLayout = collectionView.collectionViewLayout as! MainCollectionFlowLayout
         flowLayout.screenSize = screenWidth
+        
+        screenHeight = screenWidth * 9 / 5
+        
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: screenWidth / 7, bottom: screenHeight / 9, right: screenWidth / 7)
        
-        pageControl.numberOfPages = cellsData.count
         pageControl.currentPage = 0
+    }
 
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
-        SessionList.setCurrentList((lists?.last)!)
+        SessionList.setCurrentList(lists?.last)
+        updateScreen()
     }
     
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -69,6 +65,15 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ListCollectionCell
         
         let cellData = cellsData[indexPath.row]
+        cell.labelPercent.isHidden = false
+        cell.buttonDelete.isHidden = false
+        cell.buttonDelete.tag = indexPath.row
+        cell.buttonDelete.addTarget(self, action: #selector(clickDelete(sender:)), for: .touchUpInside)
+        if indexPath.row == cellsData.count - 1 {
+            cell.buttonDelete.isHidden = true
+            cell.labelPercent.isHidden = true
+        }
+        
         cell.setupCell(cellData, imageWidth: cell.layer.bounds.width)
         cell.updateCornerRadius()
         
@@ -89,21 +94,54 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         return screenWidth / 10
     }
     
-    
-    // MARK: - Navigation
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //MARK: - Actions
+    @objc func clickDelete(sender : UIButton) {
         
+        let alertController = UIAlertController(title: "main_screen_alert_title".localized, message: "", preferredStyle: .alert)
+        
+        let actionCancel = UIAlertAction(title: "button_cancel".localized, style: .default) { (action:UIAlertAction) in
+        }
+        
+        let actionDelete = UIAlertAction(title: "button_delete".localized, style: .destructive) { (action:UIAlertAction) in
+            
+            if let objectForRemove = self.lists?.first(where: {item in
+                item.listName == self.cellsData[sender.tag].textTitle
+            }) {
+                try! self.realm.write {
+                    self.realm.delete(objectForRemove)
+                }
+                
+                self.updateScreen()
+            }
+        }
+
+        alertController.addAction(actionCancel)
+        alertController.addAction(actionDelete)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = self.collectionView.cellForItem(at: indexPath) as! ListCollectionCell
         cell.removeArc()
         
         if indexPath.row == cellsData.count - 1 {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "EditListVC") as! EditListVC
             vc.isCreate = true
-            self.navigationController?.present(vc, animated: true, completion: nil)
-        } else {
+            vc.updateListsCallback = {
+                print("\n TEST updateListsCallback")
+                self.prepareLists()
+                self.collectionView.reloadData()
+                self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: true)
+            }
             
+            self.navigationController?.present(vc, animated: true, completion: nil)
+            
+        } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "CurrentListVC") as! CurrentListVC
-            vc.percentCallback = {
+            vc.percentCallback = { result in
+                print("\n TEST percentCallback")
+                self.isCallback = result
                 self.prepareLists()
                 self.collectionView.reloadData()
             }
@@ -111,7 +149,7 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
             SessionList.setCurrentList(
                 (lists?.first(where: {item in
                     item.listName == self.cellsData[indexPath.row].textTitle
-                }))!
+                }))
             )
             
             vc.modalTransitionStyle = .coverVertical
@@ -119,24 +157,40 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
         }
     }
     
+
+    // MARK: - Navigation
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offSetX = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        let horizontalCenter = width / 2
-        pageControl.currentPage = Int(((offSetX + horizontalCenter) / width).rounded())
+
+        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        
+        if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
+            pageControl.currentPage = visibleIndexPath.row
+        }
     }
     
     // MARK: - Other
+    private func updateScreen() {
+        print("\n TEST updateScreen isCallback = \(isCallback)")
+        if isCallback {
+            isCallback = false
+            return
+        }
+        
+        print(" TEST updateScreen later")
+        prepareLists()
+        collectionView.reloadData()
+    }
+    
     private func prepareLists() {
         cellsData.removeAll()
         Realm.Configuration.defaultConfiguration.deleteRealmIfMigrationNeeded = true
-        
-        let realm = try! Realm()
+
 //        try! realm.write {
 //            realm.deleteAll()
 //        }
         
-        lists = realm.objects(ObjectList.self)
+        lists = realm.objects(ObjectList.self).sorted(byKeyPath: "timestamp", ascending: false)
         
         if lists?.count == 0 {
             let defaultLists = ConstantsLists()
@@ -170,11 +224,14 @@ class MainCollectionVC: UIViewController, UICollectionViewDelegate, UICollection
                 percent = packedItemsCount / allItemsCount * 100.0
             }
             
-            cellsData.append(CellList.init(imageTitle: UIImage(named: item.imageName),
+            cellsData.append(CellList.init(timerDate: item.timerDate,
+                                           imageTitle: UIImage(named: item.imageName),
                                            textTitle: item.listName,
                                            textPercent: percent,
                                            textDescription: item.listDescription))
         }
+        
+        pageControl.numberOfPages = cellsData.count
     }
 
 }

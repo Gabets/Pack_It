@@ -10,6 +10,8 @@ import UIKit
 
 class ListCollectionCell: UICollectionViewCell {
     
+    @IBOutlet weak var buttonDelete: UIButton!
+    @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelPercent: UILabel!
     @IBOutlet weak var imageTitle: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
@@ -36,7 +38,15 @@ class ListCollectionCell: UICollectionViewCell {
         self.percent = cellData.textPercent ?? 0.0
         self.imageWidth = imageWidth - 40
         self.progressWidth = imageWidth - 40
-        
+
+        if cellData.timerDate != nil {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = Constants.TIMER_FORMAT
+            labelDate.text = dateFormatter.string(from: cellData.timerDate!).lowercased()
+        } else {
+            labelDate.text = ""
+        }
+
         labelTitle.text = cellData.textTitle
         labelDescription.text = cellData.textDescription
         labelPercent.text = "\(Int(percent.rounded()))%"

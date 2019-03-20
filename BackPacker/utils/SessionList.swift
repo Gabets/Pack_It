@@ -12,7 +12,7 @@ class SessionList {
     
     static var currentList: ObjectList? = nil
     
-    static func setCurrentList(_ list: ObjectList) {
+    static func setCurrentList(_ list: ObjectList?) {
         self.currentList = list
     }
     

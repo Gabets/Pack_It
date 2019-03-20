@@ -17,7 +17,7 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var segmentFilter: UISegmentedControl!
     @IBOutlet weak var tableItems: UITableView!
     
-    var percentCallback : (()->())?
+    var percentCallback : ((Bool)->())?
     
     private let realm = try! Realm()
     private let cellReuseIdentifier = "PackItemCell"
@@ -34,11 +34,10 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         tableItems.register(UINib(nibName: cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
         
-        currentList = SessionList.getCurrentList()
-        navTitle.title = currentList?.listName
-        navItemBack.title = "Назад"
-       
-        self.title = currentList?.listName
+        navItemBack.title = "navigation_back".localized
+        segmentFilter.setTitle("current_list_segment_first".localized, forSegmentAt: 0)
+        segmentFilter.setTitle("current_list_segment_second".localized, forSegmentAt: 1)
+        segmentFilter.setTitle("current_list_segment_third".localized, forSegmentAt: 2)
         
         updateTable()
     }
@@ -56,15 +55,33 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         cell.buttonRound.tag = item.id
         cell.buttonRound.addTarget(self, action: #selector(clickPackItem(sender:)), for: .touchUpInside)
-        cell.buttonDelete.tag = item.id
-        cell.buttonDelete.addTarget(self, action: #selector(clickDeleteItem(sender:)), for: .touchUpInside)
-
+        cell.buttonRound.addTarget(self, action: #selector(touchPack(sender:)), for: .touchDown)
+        cell.buttonRound.addTarget(self, action: #selector(touchPackCanceled(sender:)), for: .touchUpOutside)
+      
         return cell
     }
+
     
     // MARK: - Actions
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = filteredItemsList[indexPath.row]
+
+        let delete = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, nil) in
+            self.deleteItem(tag: item.id)
+        }
+
+        let img: UIImage = UIImage(named: "basket3x")!
+        
+        
+        delete.image = img
+        delete.backgroundColor = UIColor(red: 250 / 255, green: 123 / 255, blue: 100 / 255, alpha: 1.0)
+        let config =  UISwipeActionsConfiguration(actions: [delete])
+        return config
+    }
+    
     @IBAction func clickBack(_ sender: UIBarButtonItem) {
-        percentCallback!()
+        percentCallback!(true)
         self.navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -93,8 +110,8 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         filterCurrentList()
     }
     
-    @objc func clickPackItem(sender : UIButton) {
-//        let name = filteredItemsList[sender.tag].name
+    @objc func clickPackItem(sender: UIButton) {
+        
         for i in 0..<sortedItemsList.count {
             if sortedItemsList[i].id == sender.tag {
                 try! realm.write {
@@ -108,22 +125,42 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         filterCurrentList()
     }
     
-    @objc func clickDeleteItem(sender : UIButton) {
-        guard let index = currentList?.listItems.index(of: (currentList?.listItems.first(where: {
-            $0.id == sender.tag
-        }))!) else {
+    @objc private func touchPack(sender: UIButton) {
+        for item in sortedItemsList {
+            if item.id == sender.tag {
+                if item.isPacked {
+                    sender.setImage(UIImage(named: "round button")!, for: .normal)
+                } else {
+                    sender.setImage(UIImage(named: "round button fill")!, for: .normal)
+                }
+                
+                return
+            }
+        }
+        
+    }
+    
+    @objc private func touchPackCanceled(sender: UIButton) {
+        filterCurrentList()
+    }
+    
+    // MARK: - Other
+    private func deleteItem(tag: Int) {
+        let firstItem = currentList?.listItems.first(where: {
+            $0.id == tag
+        })
+        
+        guard let index = currentList?.listItems.index(of: firstItem!) else {
             return
         }
         
         try! realm.write {
             currentList?.listItems.remove(at: index)
-            sortedItemsList.remove(at: index)
         }
-     
-        filterCurrentList()
+        
+        updateTable()
     }
     
-    // MARK: - Other
     private func filterCurrentList() {
         
         switch filterIndex {
@@ -139,6 +176,10 @@ class CurrentListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func updateTable() {
+        currentList = SessionList.getCurrentList()
+        navTitle.title = currentList?.listName
+        self.title = currentList?.listName
+        
         sortedItemsList = Array((currentList?.listItems)!).sorted(by: {
             $0.name.lowercased() < $1.name.lowercased()
         })

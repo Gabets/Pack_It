@@ -9,6 +9,7 @@
 import UIKit
 
 struct CellList {
+    var timerDate: Date?
     var imageTitle: UIImage?
     var textTitle: String
     var textPercent: CGFloat?

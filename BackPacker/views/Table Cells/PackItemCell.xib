@@ -32,29 +32,17 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="MHE-xT-UCo" userLabel="Button delete">
-                        <rect key="frame" x="261.5" y="0.0" width="43.5" height="43.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="MHE-xT-UCo" secondAttribute="height" multiplier="1:1" id="zaF-bF-Ua3"/>
-                        </constraints>
-                        <state key="normal" image="trash"/>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="SGr-Lj-AYZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3RE-mr-ZjB"/>
-                    <constraint firstAttribute="trailing" secondItem="MHE-xT-UCo" secondAttribute="trailing" constant="15" id="9Yz-9J-gq5"/>
                     <constraint firstItem="SGr-Lj-AYZ" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="B7g-3n-38r"/>
-                    <constraint firstItem="MHE-xT-UCo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OE3-Ge-950"/>
                     <constraint firstItem="SGr-Lj-AYZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="SrL-Ah-KfO"/>
                     <constraint firstItem="Ul1-qs-vfW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZTS-wq-oPP"/>
                     <constraint firstItem="Ul1-qs-vfW" firstAttribute="leading" secondItem="SGr-Lj-AYZ" secondAttribute="trailing" constant="10" id="iOj-s7-Wnj"/>
-                    <constraint firstItem="MHE-xT-UCo" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="teA-pU-hB5"/>
-                    <constraint firstItem="MHE-xT-UCo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ul1-qs-vfW" secondAttribute="trailing" constant="10" id="wYw-be-VbD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="buttonDelete" destination="MHE-xT-UCo" id="BX1-uq-CQI"/>
                 <outlet property="buttonRound" destination="SGr-Lj-AYZ" id="OMI-un-8vf"/>
                 <outlet property="labelName" destination="Ul1-qs-vfW" id="DPk-Ec-BLc"/>
             </connections>
@@ -62,6 +50,5 @@
     </objects>
     <resources>
         <image name="round button" width="17" height="17"/>
-        <image name="trash" width="17" height="20"/>
     </resources>
 </document>

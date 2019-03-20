@@ -8,5 +8,6 @@ target 'BackPacker' do
   # Pods for BackPacker
 pod 'RealmSwift'
 pod 'Toast-Swift', '~> 4.0.0'
+pod 'PopupDialog', '~> 0.9'
 
 end

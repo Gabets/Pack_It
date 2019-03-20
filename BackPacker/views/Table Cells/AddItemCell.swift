@@ -11,7 +11,6 @@ import UIKit
 class AddItemCell: UITableViewCell {
 
     @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var buttonDelete: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

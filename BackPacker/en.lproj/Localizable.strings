@@ -1,0 +1,167 @@
+/* 
+  Localizable.strings
+  BackPacker
+
+  Created by Alex Gabets on 24.02.2019.
+  Copyright © 2019 Gabets. All rights reserved.
+*/
+
+//Common
+navigation_back = "Back";
+navigation_save = "Save";
+button_cancel = "Cancel";
+button_delete = "Delete";
+
+//Main screen
+main_screen_alert_title = "Delete list?";
+
+//Current list
+current_list_button_add = "Add";
+current_list_segment_first = "All";
+current_list_segment_second = "Pick";
+current_list_segment_third = "Packed";
+
+//Add item
+add_item_title_delete = "Delete";
+add_item_toast_created_and_added = "created and added.";
+add_item_toast_added = "added.";
+add_item_toast_deleted = "deleted.";
+add_item_placeholder = "Search";
+add_item_button_create = "Create";
+
+//Edit list
+edit_list_nav_title_editing = "Editing";
+edit_list_nav_title_creating = "Creating";
+edit_list_toast_empty_list_name = "Enter list name!";
+edit_list_toast_list = "List";
+edit_list_toast_created = "created";
+edit_list_toast_saved = "saved";
+edit_list_toast_unavailable_on_creation = "Unavailable on creation";
+edit_list_name_copy = "Copy";
+edit_list_cleared = "List cleared";
+edit_list_label_reminder = "Reminder";
+edit_list_label_copy = "Copying";
+edit_list_label_clear = "Clear list";
+edit_list_label_delete = "Delete";
+
+//Select Image Popup
+select_image_popup_label_title = "Select image";
+
+//Create New Popup
+create_new_popup_label_title = "New List";
+create_new_popup_label_select_type = "Select Type:";
+create_new_popup_button_empty = "Empty List";
+create_new_popup_placeholder_name = "List Name";
+create_new_popup_list_exist = "already exists";
+
+//Default Lists
+list_name_new = "New List";
+list_name_beach = "Beach tour";
+list_name_business = "Business trip";
+list_name_forest = "Forest hicking";
+
+list_description_beach = "This list contains the most necessary items for a holiday at sea.";
+list_description_business = "The list contains items that will be needed for a short business trip.";
+list_description_forest = "This list contains the most necessary items for a daily hike in the forest.";
+list_description_new = "Here you can create your own unique list for your trip.";
+
+//default items
+//forest
+item_awning = "awning";
+item_binoculars = "binoculars";
+item_book = "book";
+item_bowl = "bowl";
+item_bread = "bread";
+item_compass = "compass";
+item_cup = "cup";
+item_dental_floss = "dental floss";
+item_dry_fuel = "dry fuel";
+item_eBook = "eBook";
+item_first_aid_kit = "first aid kit";
+item_hat = "hut";
+item_hatchet = "hatchet";
+item_gloves = "gloves";
+item_insulating_tape = "insulating tape";
+item_keys = "keys";
+item_kindling = "kindling";
+item_knife = "knife";
+item_lighter = "lighter";
+item_machete = "machete";
+item_map = "map";
+item_map_case = "map-case";
+item_mat = "mat";
+item_matches = "matches";
+item_meat = "meat";
+item_multi_tool = "multi-tool";
+item_navigator = "navigator";
+item_needle_thread = "needle and thread";
+item_passport = "passport";
+item_phone = "phone";
+item_pocket_mirror = "pocket mirror";
+item_poncho = "poncho";
+item_repellent = "repellent";
+item_rope = "rope";
+item_salt = "salt";
+item_saw = "saw";
+item_seat = "seat";
+item_sleeping_bag = "sleeping bag";
+item_snacks = "snacks";
+item_soap = "soap";
+item_socks = "socks";
+item_spare_batteries = "spare batteries";
+item_spoon = "spoon";
+item_sugar = "sugar";
+item_tea = "tea";
+item_tent = "tent";
+item_thermos = "thermos";
+item_toilet_paper = "toilet paper";
+item_toothbrush = "toothbrush";
+item_toothpaste = "toothpaste";
+item_torch = "torch";
+item_towel = "towel";
+item_trekking_poles = "trekking poles";
+item_veggies = "veggies";
+item_wallet = "wallet";
+item_water_bottle = "bottle of water";
+item_water_filter = "water filter";
+item_water_flask = "water flask";
+item_wet_wipes = "wet wipes";
+
+//beach
+item_insurance = "insurance";
+item_hotel_reservation = "hotel reservation";
+item_visa = "visa";
+item_tickets = "tickets";
+item_foreign_currency = "foreign currency";
+item_razor = "razor";
+item_cotton_pads = "cotton pads";
+item_cotton_buds = "cotton buds";
+item_deodorant = "deodorant";
+item_shampoo = "shampoo";
+item_hairbrush = "hairbrush";
+item_cosmetic_bag = "cosmetic bag";
+item_charger = "charger";
+item_house_key = "house key";
+item_headphones = "headphones";
+item_swimsuit = "swimsuit";
+item_beach_bag = "beach bag";
+item_pareo = "pareo";
+item_beach_towel = "beach towel";
+item_flip_flops = "flip flops";
+item_sunscreen = "sunscreen";
+item_after_sun_cream = "after sun cream";
+item_underwear = "underwear";
+item_shoes = "shoes";
+item_dress = "dress";
+item_pants = "pants";
+item_shirt = "t-shirt";
+item_shorts = "shorts";
+item_skirt = "skirt";
+item_pajamas = "pajamas";
+
+//business
+item_business_cards = "business cards";
+item_tablet = "tablet";
+item_chargers = "chargers";
+item_diary = "diary";
+item_suit = "suit";

@@ -1,0 +1,168 @@
+/* 
+  Localizable.strings
+  BackPacker
+
+  Created by Alex Gabets on 24.02.2019.
+  Copyright © 2019 Gabets. All rights reserved.
+*/
+
+//Common
+navigation_back = "Назад";
+navigation_save = "Сохр.";
+button_cancel = "Отмена";
+button_delete = "Удалить";
+
+//Main screen
+main_screen_alert_title = "Удалить список?";
+
+//Current list
+current_list_button_add = "Добавить";
+current_list_segment_first = "Всё";
+current_list_segment_second = "Собрать";
+current_list_segment_third = "Упаковано";
+
+//Add item
+add_item_title_delete = "Удалить";
+add_item_toast_created_and_added = "создано и добавлено.";
+add_item_toast_added = "добавлено.";
+add_item_toast_deleted = "удалено.";
+add_item_placeholder = "Поиск";
+add_item_button_create = "Создать";
+
+//Edit list
+edit_list_nav_title_editing = "Редактирование";
+edit_list_nav_title_creating = "Создание";
+edit_list_toast_empty_list_name = "Введите название списка!";
+edit_list_toast_list = "Список";
+edit_list_toast_created = "создан";
+edit_list_toast_saved = "сохранён";
+edit_list_toast_unavailable_on_creation = "Недоступно при создании";
+edit_list_name_copy = "Копия";
+edit_list_cleared = "Список очищен";
+edit_list_label_reminder = "Напоминание";
+edit_list_label_copy = "Копирование";
+edit_list_label_clear = "Очистить список";
+edit_list_label_delete = "Удалить";
+
+//Select Image popup
+select_image_popup_label_title = "Выберите изображение";
+
+//Create New Popup
+create_new_popup_label_title = "Новый список";
+create_new_popup_label_select_type = "Выберите тип:";
+create_new_popup_button_empty = "Пустой список";
+create_new_popup_placeholder_name = "Название списка";
+create_new_popup_list_exist = "уже существует";
+
+//Default Lists
+list_name_new = "Новый список";
+list_name_beach = "Пляжный тур";
+list_name_business = "Бизнес поездка";
+list_name_forest = "Поход в лес";
+
+list_description_beach = "В данном списке находятся самые необходимые предметы для отдыха на море";
+list_description_business = "В списке находятся предметы, которые понадобятся для короткой деловой поездки";
+list_description_forest = "В данном списке находятся самые необходимые предметы для суточного похода в лес";
+list_description_new = "Здесь вы можете создать свой уникальный список для вашей поездки";
+
+//default items
+//forest
+item_awning = "тент";
+item_binoculars = "бинокль";
+item_book = "книга";
+item_bowl = "миска";
+item_bread = "хлеб";
+item_compass = "компас";
+item_cup = "кружка";
+item_dental_floss = "зубная нить";
+item_dry_fuel = "сухое топливо";
+item_eBook = "читалка";
+item_first_aid_kit = "аптечка";
+item_hat = "шапка";
+item_hatchet = "топорик";
+item_gloves = "перчатки";
+item_insulating_tape = "изолента";
+item_keys = "ключи";
+item_kindling = "растопка";
+item_knife = "нож";
+item_lighter = "зажигалка";
+item_machete = "мачете";
+item_map = "карта";
+item_map_case = "планшет";
+item_mat = "коврик";
+item_matches = "спички";
+item_meat = "мясо";
+item_multi_tool = "мультитул";
+item_navigator = "навигатор";
+item_needle_thread = "нитка с иголкой";
+item_passport = "паспорт";
+item_phone = "телефон";
+item_pocket_mirror = "карманное зеркальце";
+item_poncho = "пончо";
+item_repellent = "репеллент";
+item_rope = "верёвка";
+item_salt = "соль";
+item_saw = "пила";
+item_seat = "сидушка";
+item_sleeping_bag = "спальник";
+item_snacks = "вкусняшки";
+item_soap = "мыло";
+item_socks = "носки";
+item_spare_batteries = "запасные батарейки";
+item_spoon = "ложка";
+item_sugar = "сахар";
+item_tea = "чай";
+item_tent = "палатка";
+item_thermos = "термос";
+item_toilet_paper = "туалетная бумага";
+item_toothbrush = "зубная щётка";
+item_toothpaste = "зубная паста";
+item_torch = "фонарик";
+item_towel = "полотенце";
+item_trekking_poles = "треккинговые палки";
+item_veggies = "овощи";
+item_wallet = "бумажник";
+item_water_bottle = "бутылка воды";
+item_water_filter = "фильтр для воды";
+item_water_flask = "фляжка для воды";
+item_wet_wipes = "влажные салфетки";
+
+//beach
+item_visa = "виза";
+item_insurance = "страховка";
+item_hotel_reservation = "бронь отеля";
+item_tickets = "проездные билеты";
+item_foreign_currency = "иностранная валюта";
+item_razor = "бритва";
+item_cotton_pads = "ватные диски";
+item_cotton_buds = "ватные палочки";
+item_deodorant = "дезодорант";
+item_shampoo = "шампунь";
+item_hairbrush = "расческа";
+item_cosmetic_bag = "косметичка";
+item_charger = "зарядное устройство";
+item_house_key = "ключ от дома";
+item_headphones = "наушники";
+item_swimsuit = "купальник";
+item_beach_bag = "пляжная сумка";
+item_pareo = "парео";
+item_beach_towel = "пляжное полотенце";
+item_flip_flops = "сланцы";
+item_sunscreen = "солнцезащитный крем";
+item_after_sun_cream = "крем после загара";
+item_underwear = "нижнее белье";
+item_shoes = "обувь";
+item_dress = "платье";
+item_pants = "штаны";
+item_shirt = "футболка";
+item_shorts = "шорты";
+item_skirt = "юбка";
+item_pajamas = "пижама";
+
+//business
+item_business_cards = "визитки";
+item_laptop = "ноутбук";
+item_tablet = "планшет";
+item_chargers = "зарядные устройства";
+item_diary = "ежедневник";
+item_suit = "костюм";

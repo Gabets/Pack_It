@@ -1,0 +1,69 @@
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "09N-MR-8U6"; */
+"09N-MR-8U6.text" = "Title";
+
+/* Class = "UILabel"; text = "Timer Date"; ObjectID = "3mR-Ny-iXk"; */
+"3mR-Ny-iXk.text" = "Timer Date";
+
+/* Class = "UIButton"; normalTitle = "Копирование"; ObjectID = "6Pq-g8-oc1"; */
+"6Pq-g8-oc1.normalTitle" = "Копирование";
+
+/* Class = "UIButton"; normalTitle = "Удалить"; ObjectID = "9lx-ME-LFm"; */
+"9lx-ME-LFm.normalTitle" = "Удалить";
+
+/* Class = "UITextView"; text = "Lorem ipsum "; ObjectID = "Cwn-qX-oN3"; */
+"Cwn-qX-oN3.text" = "Lorem ipsum ";
+
+/* Class = "UIButton"; normalTitle = "Очистить список"; ObjectID = "F1m-Cz-DqQ"; */
+"F1m-Cz-DqQ.normalTitle" = "Очистить список";
+
+/* Class = "UIButton"; normalTitle = "Создать"; ObjectID = "I5E-kd-oOZ"; */
+"I5E-kd-oOZ.normalTitle" = "Создать";
+
+/* Class = "UIBarButtonItem"; title = "Назад"; ObjectID = "JQT-aV-wzy"; */
+"JQT-aV-wzy.title" = "Назад";
+
+/* Class = "UITextField"; text = "Name"; ObjectID = "KOI-sk-PER"; */
+"KOI-sk-PER.text" = "Name";
+
+/* Class = "UITextField"; placeholder = "  Search"; ObjectID = "MVa-ZO-7V7"; */
+"MVa-ZO-7V7.placeholder" = "  Search";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "NWv-yH-N1I"; */
+"NWv-yH-N1I.title" = "Edit";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "PA0-gc-fs9"; */
+"PA0-gc-fs9.title" = "Back";
+
+/* Class = "UIButton"; normalTitle = "Image"; ObjectID = "Tq4-js-8VL"; */
+"Tq4-js-8VL.normalTitle" = "Image";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "b1n-Ls-S7E"; */
+"b1n-Ls-S7E.normalTitle" = "Add";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "bSo-OU-ddF"; */
+"bSo-OU-ddF.title" = "Title";
+
+/* Class = "UIButton"; normalTitle = "Напоминание"; ObjectID = "gpL-rq-EOS"; */
+"gpL-rq-EOS.normalTitle" = "Напоминание";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "jh7-84-qnX"; */
+"jh7-84-qnX.title" = "Save";
+
+/* Class = "UISegmentedControl"; naI-nb-GXH.segmentTitles[0] = "Все"; ObjectID = "naI-nb-GXH"; */
+"naI-nb-GXH.segmentTitles[0]" = "Все";
+
+/* Class = "UISegmentedControl"; naI-nb-GXH.segmentTitles[1] = "Собрать"; ObjectID = "naI-nb-GXH"; */
+"naI-nb-GXH.segmentTitles[1]" = "Собрать";
+
+/* Class = "UISegmentedControl"; naI-nb-GXH.segmentTitles[2] = "В чемодане"; ObjectID = "naI-nb-GXH"; */
+"naI-nb-GXH.segmentTitles[2]" = "В чемодане";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "rUw-X0-LWL"; */
+"rUw-X0-LWL.title" = "Title";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "t9B-aV-QH9"; */
+"t9B-aV-QH9.title" = "Title";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "x4C-Pc-ObR"; */
+"x4C-Pc-ObR.title" = "Back";

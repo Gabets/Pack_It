@@ -51,6 +51,11 @@
                         <color key="textColor" red="0.29019607843137252" green="0.81960784313725488" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enj-MU-1Xz">
+                        <rect key="frame" x="20" y="26" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,8 +65,10 @@
                 <constraint firstAttribute="trailing" secondItem="d14-Mr-3zO" secondAttribute="trailing" constant="15" id="3nj-du-Ega"/>
                 <constraint firstItem="GMI-YP-bb8" firstAttribute="top" secondItem="dM0-lz-FKI" secondAttribute="bottom" constant="40" id="6mf-Yi-anT"/>
                 <constraint firstItem="PP6-06-LiX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" constant="10" id="EAq-M2-5fQ"/>
+                <constraint firstItem="enj-MU-1Xz" firstAttribute="centerY" secondItem="d14-Mr-3zO" secondAttribute="centerY" id="G11-El-98c"/>
                 <constraint firstItem="GMI-YP-bb8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="KWI-Pz-b2O"/>
                 <constraint firstAttribute="trailingMargin" secondItem="GMI-YP-bb8" secondAttribute="trailing" id="Oto-bF-wuy"/>
+                <constraint firstItem="enj-MU-1Xz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="SNr-OO-ebH"/>
                 <constraint firstItem="dM0-lz-FKI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="45" id="TJw-Ti-0he"/>
                 <constraint firstItem="PP6-06-LiX" firstAttribute="top" secondItem="GMI-YP-bb8" secondAttribute="bottom" constant="10" id="VvO-RR-bCs"/>
                 <constraint firstItem="dM0-lz-FKI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="WOM-d7-vF1"/>
@@ -71,7 +78,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="buttonDelete" destination="d14-Mr-3zO" id="aCP-hA-zc2"/>
                 <outlet property="imageTitle" destination="dM0-lz-FKI" id="wSW-mU-Sc8"/>
+                <outlet property="labelDate" destination="enj-MU-1Xz" id="SQ4-JI-R6d"/>
                 <outlet property="labelDescription" destination="PP6-06-LiX" id="Amb-Cw-MYP"/>
                 <outlet property="labelPercent" destination="5eZ-SJ-t3b" id="Krf-ad-VA2"/>
                 <outlet property="labelTitle" destination="GMI-YP-bb8" id="aSm-uv-HWP"/>

@@ -13,7 +13,9 @@ class ObjectList: Object {
     @objc dynamic var imageName = ""
     @objc dynamic var listName = ""
     @objc dynamic var listDescription = ""
+    @objc dynamic var timerDate: Date? = nil
     @objc dynamic var countValue = 0
+    @objc dynamic var timestamp = NSDate().timeIntervalSince1970
     
     var listItems = List<ObjectListItem>()
     

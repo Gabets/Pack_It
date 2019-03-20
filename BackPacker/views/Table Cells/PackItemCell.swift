@@ -11,11 +11,10 @@ import UIKit
 class PackItemCell: UITableViewCell {
     
     @IBOutlet weak var buttonRound: UIButton!
-    @IBOutlet weak var buttonDelete: UIButton!
     @IBOutlet weak var labelName: UILabel!
     
-    private let imagePacked: UIImage = UIImage(imageLiteralResourceName: "round button fill")
-    private let imageUnPacked: UIImage = UIImage(imageLiteralResourceName: "round button")
+    private let imagePacked: UIImage = UIImage(named: "round button fill")!
+    private let imageUnPacked: UIImage = UIImage(named: "round button")!
     
     override func awakeFromNib() {
         super.awakeFromNib()
